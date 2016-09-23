@@ -1,7 +1,18 @@
 ################################################################################
 This is referred to the book of "Twitter Bootstrap Web Development How-To" by David Cochran
 1. You can get the digital book from Toronto Library
-###############################################################################    
+###############################################################################  
+
+
+
+
+https://devcenter.heroku.com/articles/java-webapp-runner#prerequisites
+1. Add tomcat plugin in pom.xml
+2. $> mvn clean package
+3. $> java -jar target/dependency/webapp-runner.jar target/bootstrap.war
+4. http://localhost:8080      #Note the url without appending /bootstrap in the end
+
+   
 
 ################ Source Code Change Before Moving to Heroku Platform ###########
 1. Added Procfile under the root folder
