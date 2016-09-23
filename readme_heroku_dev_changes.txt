@@ -24,8 +24,9 @@ https://devcenter.heroku.com/articles/java-webapp-runner#prerequisites
 7. $> git push origin master
 
 ####### 3. Starting Heroku Related Process ######
-8. $> heroku create  bootstrap          # Please provide name otherwise will be random name
-                                        # I used heroku create in the 1st time, so the name is secure-island-32273
+8. $> heroku create bootstrapspring          # Please provide name otherwise will be random name
+                                             # I used heroku create in the 1st time, so the name is secure-island-32273
+                                             
 Creating app... done, secure-island-32273
 https://secure-island-32273.herokuapp.com/ | https://git.heroku.com/secure-island-32273.git
 
