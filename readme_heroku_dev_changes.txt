@@ -5,20 +5,78 @@ This is referred to the book of "Twitter Bootstrap Web Development How-To" by Da
 
 
 
+###############################################################################
+#                                                                             #
+#                  Java Web Deployed on Heroku Tomcat                         #
+#                                                                             #
+###############################################################################
 
+###### 1. Refercen link ######
 https://devcenter.heroku.com/articles/java-webapp-runner#prerequisites
+
+###### 2. Heroku Local Preparatio n######
 1. Add tomcat plugin in pom.xml
 2. $> mvn clean package
 3. $> java -jar target/dependency/webapp-runner.jar target/bootstrap.war
-4. http://localhost:8080      #Note the url without appending /bootstrap in the end
+4. http://localhost:8080                 # Note the url without appending /bootstrap in the end
+5. $> git add                            # Add any files you added or updated
+6. $> git commit -m "xxxxx"   
+7. $> git push origin master
 
+####### 3. Starting Heroku Related Process ######
+8. $> heroku create  bootstrap          # Please provide name otherwise will be random name
+                                        # I used heroku create in the 1st time, so the name is secure-island-32273
+Creating app... done, secure-island-32273
+https://secure-island-32273.herokuapp.com/ | https://git.heroku.com/secure-island-32273.git
+
+9. $> git remote -v                      # Code base is created in Heroku now
+heroku  https://git.heroku.com/secure-island-32273.git (fetch)
+heroku  https://git.heroku.com/secure-island-32273.git (push)
+origin  https://github.com/RyanCA/bootstrapspring.git (fetch)
+origin  https://github.com/RyanCA/bootstrapspring.git (push)
+ 
+10. $> git push heroku master            # Push source to heroku and deploy it    
+        
+####### Reference of result ######
+Counting objects: 95, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (84/84), done.
+Writing objects: 100% (95/95), 4.41 MiB | 869.00 KiB/s, done.
+Total 95 (delta 14), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Java app detected
+remote: -----> Installing OpenJDK 1.8... done
+remote: -----> Installing Maven 3.3.9... done
+remote: -----> Executing: mvn -B -DskipTests clean dependency:list install
+remote:        [INFO] Scanning for projects...
+remote:        [INFO] Downloading: https://repo.maven.apache.org/maven2/org/apac
+......
+......
+......
+remote:        [INFO] BUILD SUCCESS
+remote:        [INFO] ------------------------------------------------------------------------
+remote:        [INFO] Total time: 17.996 s
+remote:        [INFO] Finished at: 2016-09-23T01:42:28+00:00
+remote:        [INFO] Final Memory: 26M/185M
+remote:        [INFO] ------------------------------------------------------------------------
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 103.1M
+remote: -----> Launching...
+remote:        Released v3
+remote:        https://secure-island-32273.herokuapp.com/ deployed to Heroku  ######======Heroku link======######
+remote:
+remote: Verifying deploy.... done.
+To https://git.heroku.com/secure-island-32273.git
+ * [new branch]      master -> master
+
+11. $> >heroku open                      #It will launch browser along with url
+heroku-cli: Installing CLI... 18.18MB/18.18MB 
    
-
-################ Source Code Change Before Moving to Heroku Platform ###########
-1. Added Procfile under the root folder
-2. Change the pox.xml using the jetty plugin
-
-################################################################################
 
 ########################## Heroku Manual ######################################
 https://devcenter.heroku.com/articles/getting-started-with-java#set-up
@@ -32,35 +90,33 @@ Install heroku Environment (install 03_heroku-toolbelt_HerokuOnly.exe)
 heroku login
     
 2. 
-git clone https://github.com/RyanCA/springinaction4thedition.git
+git clone https://github.com/RyanCA/bootstrap.git
 
 3.
-cd springinaction4thedition
+cd bootstrap
 
 4. create heroku project
-heroku create                            # heroku create with system random name
+$> heroku create                            # heroku create with system random name
 or
-heroku create springinaction4thedition   # heroku create app given name
+$> heroku create bootstrap                  # heroku create app given name
 
-########################## heroku result of above command ######################
-C:\...\eclipse_projects\springinaction4thedition\springinaction4thedtion_heroku\springinaction4thedition>heroku create springinaction4thedition
-Creating springinaction4thedition... done
-https://springinaction4thedition.herokuapp.com/ | https://git.heroku.com/springinaction4thedition.git
-
-C:\...\eclipse_projects\springinaction4thedition\springinaction4thedtion_heroku\springinaction4thedition>
-
-C:\...\eclipse_projects\springinaction4thedition\springinaction4thedtion_heroku\springinaction4thedition>git remote -v
-heroku  https://git.heroku.com/springinaction4thedition.git (fetch)
-heroku  https://git.heroku.com/springinaction4thedition.git (push)
-origin  https://github.com/RyanCA/springinaction4thedition.git (fetch)
-origin  https://github.com/RyanCA/springinaction4thedition.git (push)
-################################################################################
 
 5. If you want to remove this app
-heroku apps:destroy -app springinaction4thedition
+$> heroku apps:destroy -app secure-island-32273
+###### Reference of Result Begin #######
+ !    WARNING: This will delete secure-island-32273 including all
+ !    add-ons.
+ !    To proceed, type secure-island-32273 or re-run this
+ !    command with --confirm secure-island-32273
+
+secure-island-32273
+Destroying secure-island-32273 (including all add-ons)... done
+###### Reference of Result End #######
 
 6. display heroku apps
-heroku apps                             # heroku displays apps
+$> heroku apps                             # heroku displays apps
+carrental2015
+secure-island-32273
 
 7. use git push to put source code to heroku git and deploy app
 (This will stop running apps, so you don't need to use command of "heroku ps:scale web=0" to stop app before deploy)
