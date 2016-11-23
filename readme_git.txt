@@ -1,7 +1,18 @@
 ################################################################################
 This is referred to the book of "Twitter Bootstrap Web Development How-To" by David Cochran
 1. You can get the digital book from Toronto Library
-###############################################################################    
+############################################################################### 
+
+###############################################################################
+###                                                                         ###
+### If you have 2-factor Authentication enabled you will need to create an  ### 
+### application specific password to push your repo.                        ###
+###                                                                         ###
+###############################################################################
+Refer to following URL to setup it:
+https://help.github.com/articles/creating-an-access-token-for-command-line-use/
+
+   
 
 ############################## Git Repository Location #########################
 https://github.com/RyanCA
