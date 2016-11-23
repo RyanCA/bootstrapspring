@@ -1,0 +1,184 @@
+<persistence
+        version="2.1"
+        xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                            http://xmlns.jcp.org/xml/ns/persistence_2_1.xsd">
+
+    <!-- 
+         The persistence.xml file configures at least one persistence unit;
+         each unit must have a unique name.
+         
+         With transaction-type="RESOURCE_LOCAL" you are 
+         responsible for EntityManager (PersistenceContext/Cache) creating and 
+         tracking...
+         
+         With  transaction-type="JTA" the container will do 
+         EntityManager (PersistenceContext/Cache) creating and tracking...
+         
+    -->
+    <persistence-unit name="BootstrapSpringPU" transaction-type="RESOURCE_LOCAL">
+    
+
+
+        <!-- 
+            A persistent unit has persistent (mapped) classes, you list them here.
+        -->
+        <class>com.pland.bootstrap.persistence.jpa.Message</class>
+        <class>com.pland.bootstrap.persistence.jpa.User</class>
+        
+
+        <!-- 
+            Hibernate can scan your classpath for mapped classes and add them automatically
+            to your persistence unit. This setting disables that feature.
+        --> 
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <!-- 
+            Standard or vendor-specific options can be set as properties on a persistence unit.
+            Any standard properties have the javax.persistence name prefix, Hibernate's
+            settings use hibernate
+        -->
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            
+            <!-- 
+                Reference: http://www.thoughts-on-java.org/standardized-schema-generation-data-loading-jpa-2-1/
+                
+                Defines whether the persistence provider shall create the database, 
+                first drop and then recreate it, only drop it or do nothing at all.
+                If this property is not provided, no schema will be created.
+                for database action, the value can be none, drop-and-create, create, drop
+                
+                The JPA engine should drop and re-create the SQL schema in the database
+                automatically when it boots. This is ideal for automated testing, when
+                you want to work with a clean database for every test run.
+            -->
+            <property
+                name="javax.persistence.schema-generation.database.action"
+                value="drop-and-create"/>
+           
+           <!-- Defines if the persistence provider shall also create the 
+                required database schemas or only the other database objects 
+                like tables, sequences, etc.. This property defaults to false.
+                 
+                Specifies whether the persistence provider is to create the 
+                database schema(s) in addition to creating database objects 
+                such as tables, sequences, constraints, etc.-->     
+           
+           <property
+                name="javax.persistence.schema-generation.create-database-schemas"
+                value="true"/>
+                
+            <!-- 
+                   Defines how the schema shall be dropped. It can be done based 
+                   on the mapping metadata, a script or a combination of both.
+                   If this parameter is NOT PROVIDED, the persistence provider 
+                   will use only the mapping metadata or a script, if the 
+                   javax.persistence.schema-generation.drop-script-source property 
+                   is defined.
+             -->
+                
+            <!-- 
+            <property
+                name="javax.persistence.schema-generation.drop-source"
+                value="script"/>
+                
+            <property
+                name="javax.persistence.schema-generation.drop-script-source"
+                value="dbscripts/mysql/drop.sql"/>
+            -->
+                
+                
+            <!-- Defines how the schema shall be created. It can be done based 
+                 on the mapping metadata, a script or a combination of both.
+                 If this parameter is NOT PROVIDED, the persistence provider 
+                 will use only the mapping metadata or a script, if the 
+                 javax.persistence.schema-generation.create-script-source property 
+                 is defined.
+                 The options are metadata, script, metadata-then-script, script-then-metadata
+                -->
+            <!-- 
+            <property
+                name="javax.persistence.schema-generation.create-source"
+                value="script"/>
+            -->
+                
+            <!-- Defines the location of the create script. This parameter 
+                 has to be defined, if the javax.persistence.schema-generation.create-source 
+                 property was set to script, metadata-then-script or script-then-metadata.
+                 
+                 The readable script can run in MySQL, but can not run here due 
+                 to each DDL with multiple lines. If change each DDL to one line
+                 then it works here
+                -->
+            <!-- 
+            <property
+                name="javax.persistence.schema-generation.create-script-source"
+                value="dbscripts/mysql/create.sql"/>
+            -->
+                
+            <property name="javax.persistence.sql-load-script-source" value="dbscripts/mysql/load.sql"/>
+            
+            
+            <!-- Defines which scripts the persistence provider shall create.
+                 A script target needs to be defined for each script to be created. -->
+            <property
+                name="javax.persistence.schema-generation.scripts.action"
+                value="drop-and-create"/>
+            
+            <!-- Defines the target location of the create script generated by 
+                 the persistence provider -->
+
+             <property
+                name="javax.persistence.schema-generation.scripts.create-target"
+                value="z_hibernate_generated_scripts/mysql/createStatementsGenerated.sql"/>
+
+                
+             <!-- Defines the target location of the drop script generated by 
+                 the persistence provider -->
+
+             <property
+                name="javax.persistence.schema-generation.scripts.drop-target"
+                value="z_hibernate_generated_scripts/mysql/dropStatementsGenerated.sql"/> 
+
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            
+            <!-- WARN: Hibernate hbm2ddl-auto setting was specified [create] in 
+                 combination with JPA schema-generation; combination will likely 
+                 cause trouble; 
+                 A value of create will create your tables at sessionFactory 
+                 creation, and leave them intact.
+                 A value of create-drop will create your tables, and then drop 
+                 them when you close the sessionFactory
+                 a value of update supposed to maintain the schema to follow 
+                 any changes you make to the Model each time you run the app
+            -->
+            <!-- 
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+             -->
+
+            <!-- 
+                When printing SQL in logs, let Hibernate format the SQL nicely and generate
+                comments into the SQL string so we know why Hibernate executed the SQL statement.
+            -->
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+
+            <!-- Disable Hibernate scanning completely, we also don't want any hbm.xml files
+                 discovered and added automatically. -->
+            <property name="hibernate.archive.autodetection" value="none"/>
+
+        </properties>
+        
+    </persistence-unit>
+
+
+
+
+</persistence>
