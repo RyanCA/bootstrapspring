@@ -87,6 +87,8 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 	 * Config the register servlet to handle multipart request
 	 * Refer to 7.2 of Spring in Action 4th Edition for multipart form data
 	 * 
+	 * Make sure WebConfig.java has defined bean of MultipartResolver.java
+	 * 
 	 */
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
@@ -96,10 +98,13 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 				+"xxx_tmp"+File.separator
 				+"spittr"+File.separator
 				+"uploads"+File.separator);
-		System.out.println("file.getAbsolutePath()="+file.getAbsolutePath());
-		System.out.println("file.exists()="+file.exists());
+		
+		System.out.println("########################## SpittrWebAppInitializer.customizeRegistration() BEGIN: configuring and enabling multipart request");
+		System.out.println("########################## file.getAbsolutePath()="+file.getAbsolutePath());
+		System.out.println("########################## file.exists()="+file.exists());
 		file.mkdirs();
-		System.out.println("mkdirs() in customizeRegistration() No Exception");
+		System.out.println("########################## mkdirs() No Exception");
+		System.out.println("########################## SpittrWebAppInitializer.customizeRegistration() END: configuring and enabling multipart request");
 		
 	    registration.setMultipartConfig(
 	        new MultipartConfigElement(file.getAbsolutePath(),//"/tmp/spittr/uploads" this path (From Spring in Action 4th Edition) will be associated with Tomcat container, hard to predict exact path

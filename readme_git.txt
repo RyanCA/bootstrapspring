@@ -1,8 +1,9 @@
 ################################################################################
-This is referred to the book of "Twitter Bootstrap Web Development How-To" by David Cochran
+This is referred to  book of "Twitter Bootstrap Web Development How-To" by David Cochran
+It also is referred to book of "Java Persistence with Hibernate, second Edition"
 1. You can get the digital book from Toronto Library
-############################################################################### 
-
+###############################################################################              
+ 
 ###############################################################################
 ###                                                                         ###
 ### If you have 2-factor Authentication enabled you will need to create an  ### 
@@ -12,7 +13,14 @@ This is referred to the book of "Twitter Bootstrap Web Development How-To" by Da
 Refer to following URL to setup it:
 https://help.github.com/articles/creating-an-access-token-for-command-line-use/
 
-   
+
+###############################################################################
+###                                                                         ###
+###                     Git command reference                               ### 
+###                  https://git-scm.com/book/en/v2                         ###
+###                                                                         ###
+###############################################################################
+  
 
 ############################## Git Repository Location #########################
 https://github.com/RyanCA

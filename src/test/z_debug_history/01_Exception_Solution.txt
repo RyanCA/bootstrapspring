@@ -1,0 +1,10 @@
+
+http://stackoverflow.com/questions/15632153/tomcat7-jdbc-datasource-this-is-very-likely-to-create-a-memory-leak
+
+Try to put the sql Connector/Driver in the tomcat/lib and not in the war. 
+Because every time you deploy the war the connector/driver will be created 
+sometimes the garbage collector cant remove them which will ends in a memory 
+leak. So try to move the connector on the tomcat/lib folder.
+
+So put mysql-connector-java-5.1.6.jar into apache-tomcat-8.0.3\lib
+

@@ -1,4 +1,9 @@
-
+################################################################################
+This is referred to  book of "Twitter Bootstrap Web Development How-To" by David Cochran
+It also is referred to book of "Java Persistence with Hibernate, second Edition"
+1. You can get the digital book from Toronto Library
+###############################################################################              
+ 
 ##############################################################
 #   Please refer to Commands_DB_MySQL for more details       #
 #   How to start MySQL DB Environment                        #

@@ -9,7 +9,7 @@
 	    <meta name="description" content="">
 	    <meta name="author" content="">
 	
-	    <title>App</title>
+	    <title>SocialIn</title>
 	
 	    <!-- Bootstrap core CSS -->
 	    <link href="<s:url value="/resources/bootstrap-3.3.7-dist/css/bootstrap.min.css" />" rel="stylesheet">
@@ -58,23 +58,21 @@
 	           <span class="icon-bar"></span>
 	           <span class="icon-bar"></span>
 	         </button>
-	         <a class="navbar-brand" href="user">App</a><!-- class="" This will make this appear in the left of panel-->
+	         <a class="navbar-brand" href="user/user">SocialIn</a><!-- class="" This will make this appear in the left of panel-->
 	       </div>
 	       
 	       <div class="navbar-collapse collapse">
 	           <ul class="nav navbar-nav">
-	            <li > <!-- class="active" --> <a href="<s:url value="home" />" >Home</a></li>
+	            <li > <!-- class="active" --> <a href="<s:url value="home" />" >En/CHN</a></li>
 	            <li class="dropdown">
-	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span>
+	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span>
 	              </a>
 	             <ul class="dropdown-menu">
-	               <li><a href="#">Action</a></li>
-	               <li><a href="#">Another action</a></li>
-	               <li><a href="#">Something else here</a></li>
+	               <li><a href="#">User Management</a></li>
+	               <li><a href="#">Permission Management</a></li>
 	               <li role="separator" class="divider"></li>
-	               <li class="dropdown-header">Nav header</li>
-	               <li><a href="#">Separated link</a></li>
-	               <li><a href="#">One more separated link</a></li>
+	               <li class="dropdown-header">Group Related</li>
+	               <li><a href="#">Group Management</a></li>
 	             </ul>
 	            </li>
 	           </ul>
@@ -92,8 +90,8 @@
 	  
 
 	        <ul class="nav navbar-nav navbar-right">
-	           <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
-	           <li><a href="signin"><span class="glyphicon glyphicon-log-in"></span> Sign In </a></li>
+	           <li><a href="user/signup"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+	           <li><a href="user/signin"><span class="glyphicon glyphicon-log-in"></span> Sign In </a></li>
 	       </ul>
 
 	     

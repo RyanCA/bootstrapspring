@@ -107,6 +107,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	/**
 	 * Config multipart request and let Spring know which component can take the multipart request
 	 * MultipartResolver needs to be configured a default file location, which is defined in servlet.
+	 * 
+	 * You need to the other half configuration work in following code
 	 * Refer to SpittrWebAppInitializer.customizeRegistration(Dynamic registration)
 	 */
 	@Bean

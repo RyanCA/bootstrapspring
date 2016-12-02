@@ -3,5 +3,15 @@
 	      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	      version="3.0">
+	      
+	      <!-- Setting different profile. It can be dev, qa, prod 
+	      (they can be defind by yourself not verified yet -->
+	      <!-- Refer to Spring In Action: 3.1.2. Activating profiles -->
+	      <!-- 
+	      <context-param>
+	         <param-name>spring.profiles.default</param-name>
+	         <param-value>dev</param-value>
+	      </context-param>
+	       -->
 	
 </web-app>

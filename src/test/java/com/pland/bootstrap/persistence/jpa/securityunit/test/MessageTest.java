@@ -1,4 +1,4 @@
-package com.pland.bootstrap.persistence.jpa.test;
+package com.pland.bootstrap.persistence.jpa.securityunit.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -6,17 +6,25 @@ import javax.persistence.Persistence;
 
 import org.junit.Test;
 
-import com.pland.bootstrap.persistence.jpa.Message;
+import com.pland.bootstrap.persistence.jpa.securityunit.Message;
 
 
 public class MessageTest {
 	
 	@Test
 	 public void testMessageEntity() throws Exception {
+		
+		/**
+		 * Everytimme, you create an EntityManagerFactory, the hibernate will
+		 * drop and create all the tables again.
+		 * 
+		 * So application should share one EntityManagerFactory; that's why create
+		 * the EntityManagerUtility.java
+		 */
 
-        EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("BootstrapSpringPU");
-        
+//        EntityManagerFactory emf =
+//            Persistence.createEntityManagerFactory("BootstrapSpringPU");
+//        
 
 
         try {
@@ -27,7 +35,7 @@ public class MessageTest {
                     Begin a new session with the database by creating an <code>EntityManager</code>, this
                     is your context for all persistence operations.
                  */
-                EntityManager em = emf.createEntityManager();
+                EntityManager em = EntityManagerUtility.getEntityManagerInstance();
                 em.getTransaction().begin();
 
                 /* 
@@ -86,7 +94,7 @@ public class MessageTest {
 
         } finally {
 //            TM.rollback();
-            emf.close();
+//            emf.close();
         }
     }
 
