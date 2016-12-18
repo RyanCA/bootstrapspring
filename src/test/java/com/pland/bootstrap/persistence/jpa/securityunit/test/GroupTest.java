@@ -27,26 +27,26 @@ public class GroupTest {
 
               
               User user1 = new User();
-              user1.setAccount("ryan1");
+              user1.setAccount("ryan01");
               user1.setPassword("123456");
-              user1.setFirstname("ryan1");
-              user1.setLastname("Test");
+              user1.setFirstname("ryan01");
+              user1.setLastname("Test01");
               user1.setAccountActive(true);
               user1.setEmail("ryan1@gmail.com");
               
               User user2 = new User();
-              user2.setAccount("ryan2");
+              user2.setAccount("ryan02");
               user2.setPassword("123456");
-              user2.setFirstname("ryan2");
-              user2.setLastname("Test");
+              user2.setFirstname("ryan02");
+              user2.setLastname("Test02");
               user2.setAccountActive(true);
               user2.setEmail("ryan2@gmail.com");
               
               User user3 = new User();
-              user3.setAccount("ryan3");
+              user3.setAccount("ryan03");
               user3.setPassword("123456");
-              user3.setFirstname("ryan3");
-              user3.setLastname("Test");
+              user3.setFirstname("ryan03");
+              user3.setLastname("Test03");
               user3.setAccountActive(true);
               user3.setEmail("ryan3@gmail.com");
 

@@ -50,6 +50,7 @@
 		             <h2 class="form-signin-heading">Join App today</h2>
 			        
 			        <sf:label for="firstname" path="firstname" cssClass="sr-only">First Name</sf:label>
+			        <!-- SpringMVC will display a tip tell user that this is a required field -->
 			        <sf:input type="text" path="firstname" cssClass="form-control" placeholder="First name" required="required" autofocus="autofocus" /> 
 			        <sf:errors path="firstname" cssClass="error" />
 			        

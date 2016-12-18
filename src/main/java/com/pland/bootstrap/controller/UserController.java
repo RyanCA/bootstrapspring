@@ -19,7 +19,7 @@ import com.pland.bootstrap.repository.UserRepository;
 
 
 @Controller//@Controller is a stereotype annotation, based on the @Component annotation
-@RequestMapping("/user")
+@RequestMapping("/user") //This is part of the UML it one level up to the value defined in method request mapping
 public class UserController {
 	
 	@Autowired 
@@ -36,14 +36,28 @@ public class UserController {
 	 * which page will showup defined in tiles.xml
 	 */
 	
+	/**
+	 * This defines request URL address along with RequestMapping annotation of the class.
+	 * Here for this case the URL is:/user/signup
+	 * 
+	 */
 	@RequestMapping(value="/signup", method= RequestMethod.GET)
 	public String goToSignup(Model model){
 		//In signup.jsp, you must define the commandName="user" in "spring form jsp tag"
 		model.addAttribute("user", new User());
 		
-		return "signup";
+		/**
+		 * This return value is defined in tiles.xml, which tells spring which view should be displayed
+		 */
+		return "/user/signup";
 	}
 	
+	
+	/**
+	 * This defines request URL address along with RequestMapping annotation of the class.
+	 * Here for this case the URL is:/user/signup
+	 * 
+	 */
 	@RequestMapping(value="/signup", method= RequestMethod.POST)
 	public String signup(
 			@Valid User user, 
@@ -53,25 +67,28 @@ public class UserController {
 		 * this block should be executed first if want to verify the forms from client
 		 */
 		if(errors.hasErrors()){
-			return "signup"; 
+			return "user/signup"; 
 		}
 		
 		userRepository.createAccount(user);
-		
+			
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@This is in HomeController.java");
 		System.out.println("userId="+user.getId());
 		
-		return "home";
+		/**
+		 * This return value is defined in tiles.xml, which tells spring which view should be displayed
+		 */
+		return "/user/user";
 	}
 	
 	@RequestMapping(value="/signin", method= RequestMethod.GET)
 	public String signin(){
-		return "signin";
+		return "/user/signin";
 	}
 	
 	@RequestMapping(value="/user", method= RequestMethod.GET)
 	public String user(){
-		return "user";
+		return "/user/user";
 	}
 
 }

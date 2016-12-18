@@ -8,19 +8,19 @@
     <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
   </definition>
   
-  <definition name="home" extends="base">
+  <definition name="/home" extends="base">
      <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
   </definition>
   
 
-  <definition name="signup" extends="base">
-     <put-attribute name="body" value="/WEB-INF/views/signup.jsp" />
+  <definition name="/user/signup" extends="base">
+     <put-attribute name="body" value="/WEB-INF/views/user/signup.jsp" />
   </definition>
-  <definition name="signin" extends="base">
-     <put-attribute name="body" value="/WEB-INF/views/signin.jsp" />
+  <definition name="/user/signin" extends="base">
+     <put-attribute name="body" value="/WEB-INF/views/user/signin.jsp" />
   </definition>
-    <definition name="user" extends="base">
-     <put-attribute name="body" value="/WEB-INF/views/user.jsp" />
+    <definition name="/user/user" extends="base">
+     <put-attribute name="body" value="/WEB-INF/views/user/user.jsp" />
   </definition>
   <!-- 
     <definition name="spittles" extends="base">

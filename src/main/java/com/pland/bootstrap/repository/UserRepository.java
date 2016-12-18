@@ -23,18 +23,31 @@ public class UserRepository {
 	}
 	
 	public User createAccount(User user){
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@This is in UserService.java");
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@ This is in UserService.java");
+		try{
 		
-		em.getTransaction().begin();
-		System.out.println("Firstname="+user.getFirstname());
-		System.out.println("Lastname="+user.getLastname());
-		System.out.println("Account="+user.getAccount());
-		System.out.println("Password="+user.getPassword());
-		System.out.println("email="+user.getEmail());
-		
-		em.persist(user);
-		em.getTransaction().commit();
-		em.close();
+			em.getTransaction().begin();
+			System.out.println("Firstname="+user.getFirstname());
+			System.out.println("Lastname="+user.getLastname());
+			System.out.println("Account="+user.getAccount());
+			System.out.println("Password="+user.getPassword());
+			System.out.println("email="+user.getEmail());
+			
+			em.persist(user);
+			em.getTransaction().commit();
+
+		}
+		catch(Exception e){
+			em.getTransaction().rollback();
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@ Exception in UserService.java");
+			e.printStackTrace();
+
+		}
+		finally{
+			em.close();
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@ em.close() Done in UserService.java");
+			
+		}
 		
 	    return user;
 	}

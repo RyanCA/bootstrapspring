@@ -115,4 +115,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public MultipartResolver multipartResolver() throws IOException {
 	  return new StandardServletMultipartResolver();
 	}
+	
+	
+	
 }

@@ -67,7 +67,7 @@ A: This is because you create EntityManagerFactory for each test class. They all
     when you see a foreign key column and two entity classes involved, you 
     should probably map it with @ManyToOne and nothing else. 
 
-05. A java class should be mapped as Entity or Embeddeble?
+05. A java class should be mapped as Entity or Embedable?
     If the id of the class will not be used as foreign key for other tables, then
     map this class as Embedable otherwise as entity.
     Quote from 7.3.2: 
@@ -90,5 +90,36 @@ A: This is because you create EntityManagerFactory for each test class. They all
     relationship simple
     
     OneToOne Mapping refer to "8.1.3. Using a foreign key join column"
+    
+06. Link on header will automatically add "user" as part of its URL path
+    Original code:
+    <li><a href="user/signup"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+    <li><a href="user/signin"><span class="glyphicon glyphicon-log-in"></span> Sign In </a></li>
+
+    Question description:
+	1. URL: http://localhost:8080/bootstrap/
+	   The link on "signup" is http://localhost:8080/bootstrap/user/signup
+	2. After click on link in step 1, 
+	   URL changed to: http://localhost:8080/bootstrap/user/signup
+	   The link on "signup" is http://localhost:8080/bootstrap/user/user/signup
+
+	Solution: 
+	Put the href in absolute address format by puting it as following begin with "/", which is successful
+	<li><a href=<s:url value="/user/signup" />  ><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+	
+	I tried another solution as following, which will cause URL as http://localhost:8080/user/signup (losing the domain of bootstrap)
+	<li><a href="user/signup"><span class="glyphicon glyphicon-log-in"></span> Sign In </a></li>		
+	
+07. 18-Dec-2016 16:56:31.462 SEVERE [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoader.clearReferencesJdbc The web application [/bootstrap] registered the JDBC driver [org.h2.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+    18-Dec-2016 16:56:31.462 SEVERE [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoader.clearReferencesThreads The web application [/bootstrap] appears to have started a thread named [pool-1-thread-1] but has failed to stop it. This is very likely to create a memory leak.
+
+    
+    Solution:
+    http://stackoverflow.com/questions/3320400/to-prevent-a-memory-leak-the-jdbc-driver-has-been-forcibly-unregistered
+    
+    																																						
+
+
+
     
     

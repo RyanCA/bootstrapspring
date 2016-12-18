@@ -13,6 +13,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name="TL_USER", uniqueConstraints={
@@ -39,18 +42,23 @@ public class User {
     protected Set<GroupMembers> groupMembers = new HashSet<GroupMembers>();
 
 	@NotNull
+	@Size(min=6, max=12, message="{account.size}")
 	private String account;
 	
 	@NotNull
+	@Size(min=6, max=12, message="{password.size}")
 	private String password;
 	
 	@NotNull
+	@Size(min=1, max=60, message="{firstname.size}")
 	private String firstname;
 	
 	@NotNull
+	@Size(min=1, max=60, message="{lastname.size}")
 	private String lastname;
 	
 	@NotNull
+	@Email(message="{email.valid}")
 	private String email;
 	
 	private boolean emailVerified;

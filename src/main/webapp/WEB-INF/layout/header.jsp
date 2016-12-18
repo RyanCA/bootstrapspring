@@ -58,12 +58,12 @@
 	           <span class="icon-bar"></span>
 	           <span class="icon-bar"></span>
 	         </button>
-	         <a class="navbar-brand" href="user/user">SocialIn</a><!-- class="" This will make this appear in the left of panel-->
+	         <a class="navbar-brand" href="<s:url value="/user/user" />" >SocialIn</a><!-- class="" This will make this appear in the left of panel-->
 	       </div>
 	       
 	       <div class="navbar-collapse collapse">
 	           <ul class="nav navbar-nav">
-	            <li > <!-- class="active" --> <a href="<s:url value="home" />" >En/CHN</a></li>
+	            <li > <!-- class="active" --> <a href="<s:url value="/home" />" >En/CHN</a></li>
 	            <li class="dropdown">
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span>
 	              </a>
@@ -90,8 +90,9 @@
 	  
 
 	        <ul class="nav navbar-nav navbar-right">
-	           <li><a href="user/signup"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
-	           <li><a href="user/signin"><span class="glyphicon glyphicon-log-in"></span> Sign In </a></li>
+	        <!--  <li><a href="user/signup"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li> -->
+	            <li><a href="<s:url value="/user/signup" />" ><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+	            <li><a href="<s:url value="/user/signin" />" ><span class="glyphicon glyphicon-log-in"></span> Sign In </a></li>
 	       </ul>
 
 	     

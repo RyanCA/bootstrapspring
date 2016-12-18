@@ -23,12 +23,12 @@ public class HomeController {
 	
 	@RequestMapping(value="/", method= RequestMethod.GET)
 	public String home(){
-		return "home";
+		return "/home";
 	}
 	
 	@RequestMapping(value="/home", method= RequestMethod.GET)
 	public String home1(){
-		return "home";
+		return "/home";
 	}
 
 }

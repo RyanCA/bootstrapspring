@@ -1,5 +1,7 @@
 
 http://stackoverflow.com/questions/15632153/tomcat7-jdbc-datasource-this-is-very-likely-to-create-a-memory-leak
+http://stackoverflow.com/questions/3320400/to-prevent-a-memory-leak-the-jdbc-driver-has-been-forcibly-unregistered
+http://stackoverflow.com/questions/6981564/why-must-the-jdbc-driver-be-put-in-tomcat-home-lib-folder
 
 Try to put the sql Connector/Driver in the tomcat/lib and not in the war. 
 Because every time you deploy the war the connector/driver will be created 

@@ -24,6 +24,11 @@ import com.pland.bootstrap.config.web.WebConfig;
  * 
  * Followings are RootConfig and WebConfig
  * 
+ * Instead of a web.xml file, you’re going to use Java to configure 
+ * DispatcherServlet in the servlet container.
+ * 
+ * So it is not like tranditional way to have web.xml file and config DispatcherServlet in it
+ * 
  *
  */
 
@@ -31,9 +36,14 @@ import com.pland.bootstrap.config.web.WebConfig;
 public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
-	protected String[] getServletMappings() {
+	protected String[] getServletMappings() {//Map dispatcher servlet to /
 		return new String[] {"/"};
 	}
+	
+	/**
+	 * A Tale of Two Application Contexts
+	 * 
+	 */
 	
 	/**
 	 * Load application context created by ContextLoaderListener
@@ -62,7 +72,7 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 	 * Load application context with beans defined for DispatcherServlet's application context
 	 */
 	@Override
-	protected Class<?>[] getServletConfigClasses() {
+	protected Class<?>[] getServletConfigClasses() { //Specify configuration class
 		return new Class<?>[] {WebConfig.class};
 	}
 	
