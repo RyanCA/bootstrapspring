@@ -247,6 +247,14 @@
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
 		
+		<!-- Add Spring Email Sending function -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.5.6</version>
+		</dependency>
+		
+		
 		
 
 
